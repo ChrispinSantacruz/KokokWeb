@@ -57,7 +57,7 @@ const games = [
     description: "Kokok-Pot addictive gambling game, Ready to Win?",
     genre: "Jackpot",
     year: "2025",
-    url: null, // No URL yet
+    url: "https://kokokpot1.vercel.app/",
   },
 ]
 

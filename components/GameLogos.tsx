@@ -25,7 +25,7 @@ const gameLogos = [
     id: 4,
     name: "Kokok Pot",
     image: "/kokok-pot-logo.png",
-    url: null, // No URL yet
+    url: "https://kokokpot1.vercel.app/",
   },
 ]
 

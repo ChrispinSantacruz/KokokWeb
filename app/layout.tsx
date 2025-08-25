@@ -11,9 +11,9 @@ const poppins = Poppins({
 })
 
 export const metadata: Metadata = {
-  title: "Kokok Game - Ultimate Gaming Experience",
+  title: "KOKOK Games",
   description:
-    "Experience the ultimate gaming adventure with Kokok Game collection - featuring unique arcade games, space adventures, and jackpot experiences.",
+    "Experience the ultimate gaming adventure with KOKOK Games collection - featuring unique arcade games, space adventures, and jackpot experiences.",
   generator: "v0.app",
 }
 
@@ -25,6 +25,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={poppins.variable}>
       <head>
+        <link rel="icon" href="/favicon.jpg" type="image/png" />
         <style>{`
 html {
   font-family: ${poppins.style.fontFamily};

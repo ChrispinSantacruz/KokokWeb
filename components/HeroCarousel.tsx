@@ -3,9 +3,11 @@
 import { useState, useEffect } from "react"
 import { videos } from "@/data/videos"
 import { ChevronLeft, ChevronRight } from "lucide-react"
+import { useIsMobile } from "@/hooks/use-mobile"
 
 export default function HeroCarousel() {
   const [currentSlide, setCurrentSlide] = useState(0)
+  const isMobile = useIsMobile()
 
   // Auto-advance carousel every 5 seconds
   useEffect(() => {
@@ -46,6 +48,9 @@ export default function HeroCarousel() {
             }`}
           >
             <video className="w-full h-full object-cover" autoPlay muted loop playsInline>
+              <source src={video.srcMobile} type="video/mp4" media="(max-width: 767px)" />
+              <source src={video.src} type="video/mp4" media="(min-width: 768px)" />
+              {/* Fallback for browsers that don't support media attribute */}
               <source src={video.src} type="video/mp4" />
             </video>
           </div>

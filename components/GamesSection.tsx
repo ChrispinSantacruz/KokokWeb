@@ -3,6 +3,7 @@
 import { motion } from "framer-motion"
 import { useInView } from "framer-motion"
 import { useRef } from "react"
+import { useIsMobile } from "@/hooks/use-mobile"
 
 const games = [
   {
@@ -63,6 +64,7 @@ const games = [
 export default function GamesSection() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: "-100px" })
+  const isMobile = useIsMobile()
 
   const handleGameClick = (url: string | null) => {
     if (url) {
@@ -75,7 +77,9 @@ export default function GamesSection() {
       ref={ref}
       className="min-h-screen py-12 md:py-20 px-4 relative overflow-hidden"
       style={{
-        backgroundImage: `url(/kokok-roach-gaming.png)`,
+        backgroundImage: isMobile
+          ? `url(/backgroundresponsive.png)`
+          : `url(/kokok-roach-gaming.png)`,
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",

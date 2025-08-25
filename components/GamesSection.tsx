@@ -24,9 +24,9 @@ const games = [
     title: "Kokok The Roach",
     logo: "/kokok-shot-logo.png",
     image:
-      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/kokok_game_%20buttons-05-mUyse9GF7Nw3raEuAa5Ak9KwoL3nY1.png",
+      "/kokokshot1.png",
     backgroundImage:
-      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/kokok_game_shareX-21%20%281%29-x2FxACNHoT2YBX7JH1Mpk4t2rHUyTW.png",
+      "/kokokshot1.png",
     video: "/kokokshot.mp4",
     description: "You're a cockroach shooting stacks of cash to defeat outrageous bosses like Trump and Elon.",
     genre: "Shoot em up",
@@ -38,9 +38,9 @@ const games = [
     title: "Kokok Space",
     logo: "/kokok-space-logo.png",
     image:
-      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/KOKOK%20THE%20ROACH-05-7OTsSHvUEkK81isAdaVwVh7SSZiKhf.png",
+      "/kokokspace1.png",
     backgroundImage:
-      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/KOKOK_BACKGROUND-01-lUHNSrhUpIRgnVsTJ9dRjN4c1g9fD7.png",
+      "/kokokspace1.png",
     video: "/kokokspace.mp4",
     description: "Take your roach adventure to the next level — travel through the city and outer space.",
     genre: "Space Run",
@@ -51,8 +51,8 @@ const games = [
     id: 4,
     title: "Kokok-Pot",
     logo: "/kokok-pot-logo.png",
-    image: "/kokok-pot-thumbnail.png",
-    backgroundImage: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/menu-5TFJT9EWgQOVm7lYGgOb7OGymbzg8U.png",
+    image: "/kokokpot1.png",
+    backgroundImage: "/kokokpot1.png",
     video: "public/gamekokok.mp4",
     description: "Kokok-Pot addictive gambling game, Ready to Win?",
     genre: "Jackpot",

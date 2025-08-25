@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion"
 import { useInView } from "framer-motion"
-import { useRef } from "react"
+import { useRef, useState } from "react"
 import { useIsMobile } from "@/hooks/use-mobile"
 
 const games = [
@@ -12,7 +12,7 @@ const games = [
     logo: "/game-kokok-logo.png",
     image: "/game-kokok-thumbnail.png",
     backgroundImage: "/kokok-background.png",
-    video: "/placeholder-gameplay5.mp4",
+    video: "/kokokshot.mp4",
     description:
       "A fast-paced and addictive arcade game where you smash enemies before they escape, protecting KokokTheRoach—the ultimate crypto survivor.",
     genre: "Whack-a-Mole",
@@ -27,7 +27,7 @@ const games = [
       "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/kokok_game_%20buttons-05-mUyse9GF7Nw3raEuAa5Ak9KwoL3nY1.png",
     backgroundImage:
       "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/kokok_game_shareX-21%20%281%29-x2FxACNHoT2YBX7JH1Mpk4t2rHUyTW.png",
-    video: "/placeholder-gameplay1.mp4",
+    video: "/kokokshot.mp4",
     description: "You're a cockroach shooting stacks of cash to defeat outrageous bosses like Trump and Elon.",
     genre: "Shoot em up",
     year: "2025",
@@ -41,7 +41,7 @@ const games = [
       "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/KOKOK%20THE%20ROACH-05-7OTsSHvUEkK81isAdaVwVh7SSZiKhf.png",
     backgroundImage:
       "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/KOKOK_BACKGROUND-01-lUHNSrhUpIRgnVsTJ9dRjN4c1g9fD7.png",
-    video: "/placeholder-gameplay2.mp4",
+    video: "/kokokspace.mp4",
     description: "Take your roach adventure to the next level — travel through the city and outer space.",
     genre: "Space Run",
     year: "2025",
@@ -53,7 +53,7 @@ const games = [
     logo: "/kokok-pot-logo.png",
     image: "/kokok-pot-thumbnail.png",
     backgroundImage: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/menu-5TFJT9EWgQOVm7lYGgOb7OGymbzg8U.png",
-    video: "/placeholder-gameplay4.mp4",
+    video: "public/gamekokok.mp4",
     description: "Kokok-Pot addictive gambling game, Ready to Win?",
     genre: "Jackpot",
     year: "2025",
@@ -65,6 +65,7 @@ export default function GamesSection() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: "-100px" })
   const isMobile = useIsMobile()
+  const [hoveredGame, setHoveredGame] = useState<number | null>(null)
 
   const handleGameClick = (url: string | null) => {
     if (url) {
@@ -94,9 +95,12 @@ export default function GamesSection() {
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
           transition={{ duration: 1 }}
         >
-          <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-4">
-            OUR <span className="text-orange-500">GAMES</span>
-          </h2>
+          <div className="flex items-center justify-center mb-4 gap-4">
+            <img src="/game-kokok-logo.png" alt="Kokok The Roach Logo" className="h-12 md:h-20 lg:h-24 object-contain drop-shadow-2xl" />
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white">
+              <span className="text-orange-500">GAMES</span>
+            </h2>
+          </div>
           <p className="text-gray-300 text-lg md:text-xl max-w-2xl mx-auto px-4">
             Discover our catalog of unique experiences
           </p>
@@ -113,7 +117,23 @@ export default function GamesSection() {
                 game.url ? "cursor-pointer" : "cursor-default"
               }`}
               onClick={() => handleGameClick(game.url)}
+              onMouseEnter={() => setHoveredGame(game.id)}
+              onMouseLeave={() => setHoveredGame(null)}
             >
+              {/* Video on hover */}
+              {hoveredGame === game.id && (
+                <video
+                  className="absolute inset-0 w-full h-full object-cover z-0"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  style={{ opacity: 0.5 }}
+                >
+                  <source src={game.video} type="video/mp4" />
+                </video>
+              )}
+
               {/* Background Image as Mosaic */}
               <div
                 className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"

@@ -97,13 +97,7 @@ export default function GamesSection() {
         >
           <div className="flex items-center justify-center mb-4 gap-4">
             <img src="/game-kokok-logo.png" alt="Kokok The Roach Logo" className="h-12 md:h-20 lg:h-24 object-contain drop-shadow-2xl" />
-            <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white">
-              <span className="text-orange-500">GAMES</span>
-            </h2>
           </div>
-          <p className="text-gray-300 text-lg md:text-xl max-w-2xl mx-auto px-4">
-            Discover our catalog of unique experiences
-          </p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-4xl mx-auto">
